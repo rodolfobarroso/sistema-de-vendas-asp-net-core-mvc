@@ -23,6 +23,15 @@ namespace VendasWebMvc.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            ViewData["Mensagem"] = "Esta é uma aplicação de vendas.";
+            ViewData["Responsavel"] = "Rodolfo Barroso";
+            ViewData["Email"] = "rodolfocesar24@gmail.com";
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
