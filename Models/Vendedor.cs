@@ -12,6 +12,7 @@ namespace VendasWebMvc.Models
         public DateTime DataNascimento { get; set; }
         public double SalarioBase { get; set; }
         public Departamento Departamento { get; set; }
+        public int DepartamentoId { get; set; } //garantir a integridade referencial - foreignKey
         public ICollection<RegistroVendas> Vendas { get; set; } = new List<RegistroVendas>();
 
         public Vendedor()
