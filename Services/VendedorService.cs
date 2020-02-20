@@ -22,7 +22,9 @@ namespace VendasWebMvc.Services
 
         public void Insert(Vendedor obj)
         {
-            obj.Departamento = _context.Departamento.First();
+            /*Estava sendo usando quando não tinha Departamento instanciado, 
+             *daí quebrava a integridade referencial de Vendedor-Departamento.
+             obj.Departamento = _context.Departamento.First(); */
             _context.Add(obj);
             _context.SaveChanges();
         }
