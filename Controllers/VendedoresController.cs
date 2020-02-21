@@ -34,6 +34,23 @@ namespace VendasWebMvc.Controllers
             return View(viewModel);
         }
 
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _vendedorService.FindById(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+
+        }
+
         public IActionResult Delete(int? id)
         {
             if(id == null)
@@ -49,6 +66,8 @@ namespace VendasWebMvc.Controllers
 
             return View(obj);
         }
+
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
