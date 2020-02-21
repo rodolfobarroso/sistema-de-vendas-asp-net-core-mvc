@@ -39,9 +39,7 @@
             @Html.DisplayFor(model => model.Departamento.Nome)
         </dd>
     </dl>
-
-        <button asp-action="Edit" class="btn btn-dark">Editar</button>
-        <a asp-action="Index">Voltar para a lista</a>
-
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark">Editar</a>
+    <a asp-action="Index">Voltar para a lista</a>
 </div>
 
