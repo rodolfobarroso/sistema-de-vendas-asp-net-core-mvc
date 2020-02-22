@@ -12,7 +12,7 @@ namespace VendasWebMvc.Services
     {
         private readonly VendasWebMvcContext _context;
 
-        public VendedorService( VendasWebMvcContext context)
+        public VendedorService(VendasWebMvcContext context)
         {
             _context = context;
         }
@@ -38,9 +38,16 @@ namespace VendasWebMvc.Services
 
         public async Task RemoveAsync(int id)
         {
-            var obj = await _context.Vendedor.FindAsync(id);
-            _context.Vendedor.Remove(obj);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var obj = await _context.Vendedor.FindAsync(id);
+                _context.Vendedor.Remove(obj);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException e)
+            {
+                throw new IntegrityException(e.Message);
+            }
         }
 
         public async Task UpdateAsync(Vendedor obj)
