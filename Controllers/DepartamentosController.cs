@@ -24,7 +24,7 @@ namespace VendasWebMvc.Controllers
             return View(await _context.Departamento.ToListAsync());
         }
 
-        // GET: Departamentos/Details/5
+        // GET: Departamentos/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
