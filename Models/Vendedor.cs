@@ -31,7 +31,7 @@ namespace VendasWebMvc.Models
         public double SalarioBase { get; set; }
         public Departamento Departamento { get; set; }
         public int DepartamentoId { get; set; } //garantir a integridade referencial - foreignKey
-        public ICollection<RegistroVendas> Vendas { get; set; } = new List<RegistroVendas>();
+        public ICollection<VendasRegistro> Vendas { get; set; } = new List<VendasRegistro>();
 
         public Vendedor()
         {
@@ -48,12 +48,12 @@ namespace VendasWebMvc.Models
             Departamento = departamento;
         }
 
-        public void AddVendas(RegistroVendas registroVenda)
+        public void AddVendas(VendasRegistro registroVenda)
         {
             Vendas.Add(registroVenda);
         }
 
-        public void RemoveVendas(RegistroVendas registroVenda)
+        public void RemoveVendas(VendasRegistro registroVenda)
         {
             Vendas.Remove(registroVenda);
         }
